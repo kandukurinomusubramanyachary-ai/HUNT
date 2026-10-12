@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    border-color: #29313d;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    background-color: #090b10;
+    color: #f4f6fa;
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: rgba(163, 230, 53, 0.28);
+    color: #f4f6fa;
+  }
+
+  /* Scrollbars */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #232a35;
+    border-radius: 8px;
+    border: 2px solid #090b10;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #333c4a;
+  }
+
+  :focus-visible {
+    outline: 2px solid #a3e635;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    font-family: var(--font-geist-mono), ui-monospace, monospace;
+    letter-spacing: -0.01em;
+  }
+
+  .surface-card {
+    background-color: #11151d;
+    border: 1px solid #29313d;
+    border-radius: 12px;
+  }
+
+  .grid-noise {
+    background-image: radial-gradient(
+      circle at 50% 0%,
+      rgba(163, 230, 53, 0.06),
+      transparent 60%
+    );
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Recharts overrides */
+.recharts-default-tooltip {
+  border-radius: 8px !important;
+}
+.recharts-cartesian-axis-tick text {
+  fill: #657082;
+  font-size: 11px;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+}
+.recharts-surface {
+  overflow: visible;
+}
